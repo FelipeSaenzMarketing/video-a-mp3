@@ -1,22 +1,22 @@
-# Video a MP3
+# Video to MP3
 
-Aplicación local con Streamlit que descarga el audio de una URL de video y lo convierte a MP3.
+A local Streamlit app that downloads the audio from a video URL and converts it to MP3.
 
-## Requisitos
+## Requirements
 
-- Python 3.9 o superior
-- FFmpeg (necesario para la conversión de audio)
+- Python 3.9 or higher
+- FFmpeg (required for audio conversion)
 
-## Instalación
+## Installation
 
-1. Clona el repositorio y entra en la carpeta:
+1. Clone the repository and enter the folder:
 
    ```bash
    git clone https://github.com/FelipeSaenzMarketing/video-a-mp3.git
    cd video-a-mp3
    ```
 
-2. Crea un entorno virtual e instala las dependencias de Python:
+2. Create a virtual environment and install the Python dependencies:
 
    ```bash
    python3 -m venv venv
@@ -24,41 +24,41 @@ Aplicación local con Streamlit que descarga el audio de una URL de video y lo c
    pip install streamlit yt-dlp
    ```
 
-3. Instala FFmpeg si no lo tienes ya en el sistema:
+3. Install FFmpeg if it isn't already on your system:
 
-   - **macOS (con Homebrew):**
+   - **macOS (with Homebrew):**
 
      ```bash
      brew install ffmpeg
      ```
 
-   - **macOS sin Homebrew:** puedes usar el paquete `ffmpeg-downloader`, que descarga el binario oficial sin necesitar permisos de administrador:
+   - **macOS without Homebrew:** you can use the `ffmpeg-downloader` package, which downloads the official binary without requiring admin permissions:
 
      ```bash
      pip install ffmpeg-downloader
      ffdl install
      ```
 
-     Después, enlaza el binario descargado dentro de `venv/bin` para que la app lo detecte:
+     Then symlink the downloaded binary into `venv/bin` so the app can detect it:
 
      ```bash
      ln -sf "$(python -c 'import ffmpeg_downloader as f; print(f.ffmpeg_path)')" venv/bin/ffmpeg
      ```
 
-   - **Windows / Linux:** descarga FFmpeg desde [ffmpeg.org](https://ffmpeg.org/download.html) y agrégalo al PATH del sistema.
+   - **Windows / Linux:** download FFmpeg from [ffmpeg.org](https://ffmpeg.org/download.html) and add it to your system's PATH.
 
-## Uso
+## Usage
 
-Con el entorno virtual activado:
+With the virtual environment activated:
 
 ```bash
-streamlit run video_a_mp3.py
+streamlit run video_to_mp3.py
 ```
 
-Esto abre la app en `http://localhost:8501`. Pega la URL de un video, elige la calidad del MP3 y pulsa **Convertir**.
+This opens the app at `http://localhost:8501`. Paste a video URL, pick the MP3 quality, and click **Convert**.
 
-En macOS también puedes usar el acceso directo incluido: doble clic en `Iniciar Video a MP3.command`.
+On macOS you can also use the included shortcut: double-click `Start Video to MP3.command`.
 
-## Aviso
+## Disclaimer
 
-Usa esta herramienta solo con contenido propio o del que tengas derecho a descargar.
+Only use this tool with content you own or have the right to download.
