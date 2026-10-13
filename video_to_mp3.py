@@ -14,9 +14,26 @@ from pathlib import Path
 import streamlit as st
 import yt_dlp
 
-st.set_page_config(page_title="Video to MP3", page_icon="🎵", layout="centered")
-st.title("🎵 Video to MP3 Converter")
-st.write("Paste a video URL and download its audio as an MP3 file.")
+from branding import apply_branding, brand_header, project_panel, signature
+
+st.set_page_config(page_title="Video to MP3 Converter", layout="centered")
+
+apply_branding()
+brand_header(
+    "Video to MP3 Converter",
+    "Extract the audio from any video URL and download it as an MP3 file.",
+    kicker="Media Tools",
+)
+project_panel(
+    "Paste the link to a video and this tool downloads its best available audio track, "
+    "converts it to MP3 with FFmpeg and gives you a file ready to play or download. "
+    "Everything runs locally on your machine.",
+    points=[
+        "Paste the video URL.",
+        "Choose the MP3 bitrate (higher means better quality and a larger file).",
+        "Click Convert, then download the result.",
+    ],
+)
 
 # Check for FFmpeg
 if shutil.which("ffmpeg") is None:
@@ -78,7 +95,7 @@ if st.button("Convert", type="primary", disabled=not url):
         st.success(f"Conversion complete: {name}")
         st.audio(data, format="audio/mp3")
         st.download_button(
-            "⬇️ Download MP3",
+            "Download MP3",
             data=data,
             file_name=name,
             mime="audio/mpeg",
@@ -89,3 +106,5 @@ if st.button("Convert", type="primary", disabled=not url):
         st.error(f"An error occurred: {e}")
 
 st.caption("Only use this tool with content you own or have the right to download.")
+
+signature()

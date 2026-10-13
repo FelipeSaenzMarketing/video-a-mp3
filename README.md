@@ -59,6 +59,13 @@ This opens the app at `http://localhost:8501`. Paste a video URL, pick the MP3 q
 
 On macOS you can also use the included shortcut: double-click `Start Video to MP3.command`.
 
+## Project structure
+
+- `video_to_mp3.py` - the Streamlit app.
+- `branding.py` - shared Felipe Saenz brand theme (Montserrat typography, color palette, header, info panel and signature).
+- `.streamlit/config.toml` - pins the light theme and brand colors.
+- `Start Video to MP3.command` - macOS double-click launcher.
+
 ## Disclaimer
 
 Only use this tool with content you own or have the right to download.
